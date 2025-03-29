@@ -1,10 +1,16 @@
 
-// Bonus 1 GESTISCI ERRORI TRA UNA RICERCA E UN ALTRA 
+// Bonus 1 
+// GESTISCI ERRORI TRA UNA RICERCA E UN ALTRA
 //ci aiuta a capire dov e l errore e di che tipo e
 // ex: id (558493422) ex: link false per stabilire a quale fetch si riferisce
-// Attualmente, se la prima richiesta non trova una ricetta, 
+// Attualmente, se la prima richiesta non trova una ricetta,
 // la seconda richiesta potrebbe comunque essere eseguita causando errori a cascata.
 // Modifica getChefBirthday(id) per intercettare eventuali errori prima di fare la seconda richiesta.
+
+// Bonus 2
+// Utilizza la libreria dayjs per formattare la data di nascita nel formato giorno / mese / anno.
+// Esempio di output atteso con formattazione
+// Data di nascita dello chef: 15 /06 / 1990
 
 async function getChefBirthday(id) {
     
