@@ -24,16 +24,15 @@
 //     .catch(error => console.error("Errore:", error.message));
 
 // Esempio di output atteso:
-
 // Data di nascita dello chef: 1990-06 - 15
 
 //ESECUZIONE
 
 async function getChefBirthday(id){
-    const response = await fetch(`https://dummyjson.com/recipes/${id}`)//dato resolve al fetch
+    const response = await fetch(`https://dummyjson.com/recipes/${id}`)
     const recipes = await response.json();
     console.log(recipes)//vedo a ceh punto sono
-    const user = await fetch(`https://dummyjsonfalso.com/users/${recipes.userId}`)//se metto url falso fetch cannot obtain data-pero errore fialed to fetch non ci dice a quale fetch si riferisce
+    const user = await fetch(`https://dummyjsonfalso.com/users/${recipes.userId}`)
     const chef = await user.json()
     console.log(chef)
     // return {...recipes, chef} //ritorna promise che risolve quel valore
@@ -46,7 +45,7 @@ async function getChefBirthday(id){
 // .then(birthday => console.log("Data di nascita dello chef:", birthday))
 // .catch(error => console.error("Errore:", error.message));
 
-(async() => {//funzione anonima asincrona eseguita subito 1.creiamo contenuto 2.wrappiamo in try-catch
+(async() => {
 try {
     const birthday = await getChefBirthday(1)
 console.log("Data di nascita dello chef:", birthday)

@@ -18,7 +18,7 @@ async function getChefBirthday(id) {
     try{
         const response = await fetch(`https://dummyjson.com/recipes/${6798888}`)//dato resolve al fetch
         recipes = await response.json();
-        console.log(recipes)//recipes ha cmq al suo interno qualcosa: oggetto con messaggio che contiene l errore
+        console.log(recipes)
     }catch(error){//se c e errore > lo stampo in console e throw errore generico catturato da try catch sotto
         throw new Error(`Non trova la ricetta con id ${id}`)
     }
@@ -35,21 +35,20 @@ async function getChefBirthday(id) {
         throw new Error(`chef con id ${id} non trovato`)
     }
 
-    if(!chef){//chef non e stato trovato non ha senso il return
+    if(!chef){
         throw new Error(`chef con id ${id}non trovato`)
     }// return {...recipes, chef} //ritorna promise che risolve quel valore
     const newdate = dayjs(chef.birthDate).format('DD/MM/YYYY')
     return newdate
 }
 
-(async () => {//funzione anonima asincrona eseguita subito 1.creiamo contenuto 2.wrappiamo in try-catch
+(async () => {
     try {
         const birthday = await getChefBirthday(1)
         console.log("Data di nascita dello chef:", birthday)
     } catch (error) {
         console.error("Errore:", error.message)
     }
-    console.log("Fine!")//lo vediamo perche abbiamo gestito bene
+    console.log("Fine!")
 })()
 
-// console.log(dayjs) //ritorna in console una funzione per lavorare ocn le date
